@@ -1,0 +1,51 @@
+<%- include('partials/head.ejs') %>
+<body>
+    <%- include("base.ejs",{a:3}) %>
+
+        <div class="main-content">
+           
+            
+<form>
+            
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nom</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Prenoms</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+        </div>
+    </div>
+    
+    
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Formation</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Durée </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">date de debut</label>
+        <input type="date" class="form-control" id="dateDebutAbsence" aria-describedby="emailHelp">
+      </div>
+      
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Valider</button>
+    </div>
+    
+</form>
+
+            
+        </div>
+    </div>
+</body>
+</html>
+

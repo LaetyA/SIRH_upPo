@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y: hidden;
+}
+
+.dashboard-container {
+    display: flex;
+    font-size: 16px;
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-photo {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.user-info h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.user-info p {
+    margin: 5px 0 0;
+    color: #ccc;
+}
+
+.navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation li {
+    margin-bottom: 10px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #495057;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: -5px;
+}
+
+/* Style pour le survol et l'état actif */
+.navigation a:hover,
+.navigation a.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+.navigation .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.navigation .dropbtn {
+    text-decoration: none;
+    display: block;
+    padding: 8px 15px; /* Ajustez la valeur de la marge intérieure pour changer la longueur */
+    background-color: #495057; /* Changez la couleur du fond du bouton */
+    color: #fff; /* Changez la couleur du texte du bouton */
+    border-radius: 5px; /* Ajoutez une bordure arrondie si nécessaire */
+    transition: background-color 0.3s;
+    font-size: 14px;
+    width: 210px;
+    border: 1px solid #495057;
+    text-align: left;
+}
+
+.navigation .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.navigation .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.navigation .dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.navigation .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navigation .dropdown:hover .dropbtn {
+    background-color: #007bff;
+}

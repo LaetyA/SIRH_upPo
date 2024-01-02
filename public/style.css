@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /* background-color: rgb(199, 128, 35) */
+
+    /* background: linear-gradient(135deg,#71b7e6,#9b59b6); */
+    /* background: linear-gradient(to right, #00cc66, #66ccff, #ffffff); */
+    
+    ;
+  
+    
+
+}
+.container{
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+.container.title{
+    font-size: 25px;
+    font-weight: 500;
+}

@@ -1,0 +1,174 @@
+<%- include('partials/head.ejs') %>
+<body>
+    <%- include("base.ejs",{a:1}) %>
+
+    <div class="main-content">
+        <h1>Bienvenue sur l'application SIRH</h1>
+
+        <!-- Statistiques -->
+        <div class="statistics">
+            <!-- Row pour les graphiques -->
+            <div class="row">
+
+                <!-- Graphique en anneau (Enseignants Chercheurs, Personnel Administratif) -->
+                <div class="col-md-4">
+                    <div class="doughnut-container">
+                        <canvas id="myDoughnutChart" width="300" height="300"></canvas>
+                    </div>
+                </div>
+
+                <!-- Nouveau graphique en anneau (Femmes et Hommes parmi le Personnel Administratif) -->
+                <div class="col-md-4">
+                    <div class="doughnut-container">
+                        <canvas id="genderAdminChart" width="300" height="300"></canvas>
+                    </div>
+                </div>
+
+                <!-- Nouveau graphique en anneau (Femmes et Hommes parmi les Enseignants Chercheurs) -->
+                <div class="col-md-4">
+                    <div class="doughnut-container">
+                        <canvas id="genderTeachersChart" width="300" height="300"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Fonction utilitaire pour générer des nombres aléatoires
+        function generateRandomNumbers(count, min, max) {
+            const numbers = [];
+            for (let i = 0; i < count; i++) {
+                numbers.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+            return numbers;
+        }
+
+        // Données fictives pour le graphique en anneau (Enseignants Chercheurs, Personnel Administratif)
+        const DATA_COUNT = 2;
+        const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+        const data = {
+          labels: ['Enseignants Chercheurs', 'Personnel Administratif'],
+          datasets: [
+            {
+              label: 'Types de Personnes',
+              data: generateRandomNumbers(NUMBER_CFG.count, NUMBER_CFG.min, NUMBER_CFG.max),
+              backgroundColor: ['#007BFF', '#28a745'],
+            },
+          ],
+        };
+
+        // Configuration du graphique en anneau (Enseignants Chercheurs, Personnel Administratif)
+        const config = {
+          type: 'doughnut',
+          data: data,
+          options: {
+            responsive: false,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'personnel',
+              },
+            },
+          },
+        };
+
+        // Création du graphique en anneau (Enseignants Chercheurs, Personnel Administratif)
+        var ctx = document.getElementById('myDoughnutChart').getContext('2d');
+        var myDoughnutChart = new Chart(ctx, config);
+
+        // Afficher les pourcentages au centre du graphique global
+        var canvasGlobal = document.getElementById('myDoughnutChart');
+        var ctxGlobal = canvasGlobal.getContext('2d');
+        var centerXGlobal = canvasGlobal.width / 2;
+        var centerYGlobal = canvasGlobal.height / 2;
+
+        ctxGlobal.font = '18px Arial';
+        ctxGlobal.fillStyle = '#007BFF';
+        ctxGlobal.textAlign = 'center';
+        ctxGlobal.fillText('50%', centerXGlobal, centerYGlobal - 10);
+
+        ctxGlobal.fillStyle = '#28a745';
+        ctxGlobal.fillText('30%', centerXGlobal, centerYGlobal + 20);
+
+        // Données fictives pour le nouveau graphique en anneau (Femmes et Hommes parmi le Personnel Administratif)
+        const genderAdminData = {
+          labels: ['Femmes', 'Hommes'],
+          datasets: [
+            {
+              label: 'Genre du Personnel Administratif',
+              data: generateRandomNumbers(NUMBER_CFG.count, NUMBER_CFG.min, NUMBER_CFG.max),
+              backgroundColor: ['#FF1493', '#4682B4'],
+            },
+          ],
+        };
+
+        // Configuration du nouveau graphique en anneau (Femmes et Hommes parmi le Personnel Administratif)
+        const genderAdminConfig = {
+          type: 'doughnut',
+          data: genderAdminData,
+          options: {
+            responsive: false,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'personnel administratif',
+              },
+            },
+          },
+        };
+
+        // Création du nouveau graphique en anneau (Femmes et Hommes parmi le Personnel Administratif)
+        var genderAdminCtx = document.getElementById('genderAdminChart').getContext('2d');
+        var genderAdminChart = new Chart(genderAdminCtx, genderAdminConfig);
+
+        // Données fictives pour le nouveau graphique en anneau (Femmes et Hommes parmi les Enseignants Chercheurs)
+        const genderTeachersData = {
+          labels: ['Femmes', 'Hommes'],
+          datasets: [
+            {
+              label: 'Genre des Enseignants Chercheurs',
+              data: generateRandomNumbers(NUMBER_CFG.count, NUMBER_CFG.min, NUMBER_CFG.max),
+              backgroundColor: ['#FF1493', '#4682B4'],
+            },
+          ],
+        };
+
+        // Configuration du nouveau graphique en anneau (Femmes et Hommes parmi les Enseignants Chercheurs)
+        const genderTeachersConfig = {
+          type: 'doughnut',
+          data: genderTeachersData,
+          options: {
+            responsive: false,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Enseignent chercheur',
+              },
+            },
+          },
+        };
+
+        // Création du nouveau graphique en anneau (Femmes et Hommes parmi les Enseignants Chercheurs)
+        var genderTeachersCtx = document.getElementById('genderTeachersChart').getContext('2d');
+        var genderTeachersChart = new Chart(genderTeachersCtx, genderTeachersConfig);
+    </script>
+</body>
+</html>
